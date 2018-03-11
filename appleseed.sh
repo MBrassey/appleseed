@@ -40,9 +40,25 @@ imgcat="/Users/matthew/.iterm2/imgcat"
 minutes="10"
 status1="Working.. "
 status2="Updated!  "
+copying="Copying.. "
+home="$HOME"
 DIR="$HOME/git/appleseed/img"
+BDIR="$HOME/.*"
 IFS='
 '
+
+#What do you want to backup?
+dotfile0="$HOME/.zshrc"
+dotfile1="$HOME/.oh-my-zsh/themes/trident.zsh-theme"
+dotfile2="$HOME/Library/Fonts/Hack-Regular.ttf"
+dotfile3=""
+dotfile4=""
+dotfile5=""
+dotfile6=""
+dotfile7=""
+dotfile8=""
+dotfile9=""
+many="3"
 
 #Colors
 reset="$(tput sgr0)"
@@ -59,8 +75,9 @@ orange=$(tput bold; tput setaf 166);
 violet=$(tput bold; tput setaf 61);
 host="$(echo $HOSTNAME)"
 header="${cyan}[  appleseed : ${host} ]${reset}"
-header0="${purple}Packages:${reset}"
-header1="${purple}Network:${reset}"
+backup="${purple}Backup:${reset}"
+packages="${purple}Packages:${reset}"
+network="${purple}Network:${reset}"
 
 #Functions
 function panel() {
@@ -68,11 +85,14 @@ function panel() {
        clear
        echo $header
        echo ""
-       echo $header0
+       echo $backup
+       backup
+       echo ""
+       echo $packages
        macOS
        homebrew
        echo ""
-       echo $header1
+       echo $network
        network
 
 if [[ -d "${DIR}" ]]
@@ -162,6 +182,76 @@ function network(){
       echo "• ${blue}Country: ${reset}${green}$country${reset}"
 }
 
+function backup(){
+     count="0"
+     echo "[ ${blue}dotfiles:  ${reset}${yellow}$copying${reset} ]"
+     
+     if [ -f "$dotfile0" ]
+     then
+#     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile1" ]
+     then
+#     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile2" ]
+     then
+#     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile3" ]
+     then
+     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile4" ]
+     then
+     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile5" ]
+     then
+     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ -f "$dotfile6" ]
+     then
+     echo good
+     ((count++))
+     else
+     :
+     fi
+
+     if [ $count -eq $many ]
+     then
+     img_backup="✔"
+     else
+     img_backup="${orange}✗${reset}"
+     fi
+     echo "[ ${cyan}$img_backup Copied:  ${reset}${green}"$count"${reset}/${cyan}"$many"${reset}${cyan} files!${reset} ]"
+
+}
+
 function completed(){
       echo ""
       duration=$(( SECONDS - $start ))
@@ -177,7 +267,7 @@ for ((arg=0;arg<"${#args[@]}";arg++)); do
         #[ "${args[$arg]}" == "--" ] && echo ${args[$arg]}
 done 
 
-#activate panel
+##activate panel
 while [ $endscript = "false" ]
 do
         panel
