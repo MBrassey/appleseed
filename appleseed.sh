@@ -30,7 +30,7 @@ Usage: ./appleseed.sh [--help|--version]
 "
 
 about="
-• appleseed is a command line widget (CLW), designed for macOS and iTerm2. For best results, launch in a tall by thin proportioned shell.  
+ appleseed is a command line widget (CLW), designed for macOS and iTerm2. For best results, launch in a tall by thin proportioned shell.  
 "
 
 #Variables
