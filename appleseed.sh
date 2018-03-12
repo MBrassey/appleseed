@@ -1,38 +1,6 @@
 #!/usr/bin/env bash
 # appleseed is a command line widget (CLW), designed for macOS and iTerm2.  
 
-version=1.0.0
-
-license="
-appleseed v${version}
-Copyright (C) 2018 Matthew A. Brassey
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"
-
-help="
-Usage: ./appleseed.sh [--help|--version]
-
-[options]
-        --license       Show lisense information.
-        --about         What is appleseed?
-"
-
-about="
- appleseed is a command line widget (CLW), designed for macOS and iTerm2. For best results, launch in a tall by thin proportioned shell.  
-"
-
 #Variables
 args=("$@")
 endscript="false"
@@ -43,22 +11,21 @@ status2="Updated!  "
 copying="Copying.. "
 home="$HOME"
 DIR="$HOME/git/appleseed/img"
-BDIR="$HOME/.*"
+BDIR="$HOME/git/appleseed/backup" #your backup directory
 IFS='
 '
 
-#What do you want to backup?
+#What do you want to backup? 
 dotfile0="$HOME/.zshrc"
 dotfile1="$HOME/.oh-my-zsh/themes/trident.zsh-theme"
 dotfile2="$HOME/Library/Fonts/Hack-Regular.ttf"
-dotfile3=""
-dotfile4=""
+dotfile3="$HOME/.tmux.conf"
+dotfile4="/etc/tmux.conf.local"
 dotfile5=""
 dotfile6=""
 dotfile7=""
 dotfile8=""
-dotfile9=""
-many="3"
+many="5"
 
 #Colors
 reset="$(tput sgr0)"
@@ -78,6 +45,43 @@ header="${cyan}[  appleseed : ${host} ]${reset}"
 backup="${purple}Backup:${reset}"
 packages="${purple}Packages:${reset}"
 network="${purple}Network:${reset}"
+
+#Arguments
+version=${cyan}1.0.0${reset}
+
+license="
+${cyan}${reset} appleseed v${version}
+
+        ${purple}Copyright (C) 2018 Matthew A. Brassey${reset}
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"
+
+help="
+${cyan}Usage:${cyan}${green} ./appleseed.sh ${reset}${purple}[--help|--version]${reset}
+
+${cyan}[options]${reset}${green}
+        --license       Show lisense information.
+        --about         What is appleseed?${reset}
+"
+
+about="
+${cyan}${reset} appleseed v${version}
+
+        Is a command line widget (CLW), designed for macOS and iTerm2. For best results, 
+        launch in a tall by thin proportioned shell.  
+"
 
 #Functions
 function panel() {
@@ -102,7 +106,7 @@ then
   $imgcat "${DIR}/${file_matrix[$((RANDOM%num_files))]}"
 fi
 
-#sleep sequence
+#Sleep sequence
        completed
        secs=$(($minutes * 60))
        while [ $secs -gt 0 ]; do
@@ -189,6 +193,7 @@ function backup(){
      if [ -f "$dotfile0" ]
      then
 #     echo good
+     cp $dotfile0 ${BDIR} 2>&1 
      ((count++))
      else
      :
@@ -197,6 +202,7 @@ function backup(){
      if [ -f "$dotfile1" ]
      then
 #     echo good
+     cp $dotfile1 ${BDIR} 2>&1  
      ((count++))
      else
      :
@@ -205,6 +211,7 @@ function backup(){
      if [ -f "$dotfile2" ]
      then
 #     echo good
+     cp $dotfile2 ${BDIR} 2>&1
      ((count++))
      else
      :
@@ -212,7 +219,8 @@ function backup(){
 
      if [ -f "$dotfile3" ]
      then
-     echo good
+#     echo good
+     cp $dotfile3 ${BDIR} 2>&1
      ((count++))
      else
      :
@@ -220,7 +228,8 @@ function backup(){
 
      if [ -f "$dotfile4" ]
      then
-     echo good
+#     echo good
+     cp $dotfile4 ${BDIR} 2>&1  
      ((count++))
      else
      :
@@ -258,7 +267,7 @@ function completed(){
       echo "${blue}╭────╼${reset}${purple} Completed in: ${reset}${cyan}$duration${reset}${cyan}s${reset}"
 }
 
-#arguments 
+#Arguments 
 for ((arg=0;arg<"${#args[@]}";arg++)); do
         [ "${args[$arg]}" == "--version" ] && echo "${version}" && exit
         [ "${args[$arg]}" == "--help" ] && echo "${help}" && exit
@@ -267,7 +276,7 @@ for ((arg=0;arg<"${#args[@]}";arg++)); do
         #[ "${args[$arg]}" == "--" ] && echo ${args[$arg]}
 done 
 
-##activate panel
+#Activate panel
 while [ $endscript = "false" ]
 do
         panel
