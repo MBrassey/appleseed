@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# appleseed is a command line widget (CLW), designed for macOS and iTerm2.  
+# appleseed is a command line widget (CLW), designed for macOS and iTerm2.
 
 #Variables
 args=("$@")
@@ -15,7 +15,7 @@ BDIR="$HOME/git/appleseed/backup" #your backup directory
 IFS='
 '
 
-#What do you want to backup? 
+#What do you want to backup?
 dotfile0="$HOME/.zshrc"
 dotfile1="$HOME/.oh-my-zsh/themes/trident.zsh-theme"
 dotfile2="$HOME/Library/Fonts/Hack-Regular.ttf"
@@ -79,8 +79,8 @@ ${cyan}[options]${reset}${green}
 about="
 ${cyan}${reset} appleseed v${version}
 
-        Is a command line widget (CLW), designed for macOS and iTerm2. For best results, 
-        launch in a tall by thin proportioned shell.  
+        Is a command line widget (CLW), designed for macOS and iTerm2. For best results,
+        launch in a tall by thin proportioned shell.
 "
 
 #Functions
@@ -98,13 +98,7 @@ function panel() {
        echo ""
        echo $network
        network
-
-if [[ -d "${DIR}" ]]
-then
-  file_matrix=($(ls "${DIR}"))
-  num_files=${#file_matrix[*]}
-  $imgcat "${DIR}/${file_matrix[$((RANDOM%num_files))]}"
-fi
+       graphix
 
 #Sleep sequence
        completed
@@ -117,6 +111,15 @@ fi
        echo "$footer"
 }
 
+function graphix() {
+     if [[ -d "${DIR}" ]]
+     then
+       file_matrix=($(ls "${DIR}"))
+       num_files=${#file_matrix[*]}
+       $imgcat "${DIR}/${file_matrix[$((RANDOM%num_files))]}"
+     fi
+}
+
 function homebrew() {
       echo "[ ${blue}Homebrew: ${reset} ${yellow}$status1${reset} ]"
       temp0="$(brew update 2>&1)"
@@ -124,7 +127,7 @@ function homebrew() {
       status4="${green}Updated!${reset}"
       img_brew="✔"
       echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
-      else 
+      else
       status4="${orange}Missing!${reset}"
       echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
       img_brew="${orange}✗${reset}${cyan}"
@@ -150,7 +153,7 @@ function macOS() {
       else
       status3="${green}Updated!${reset}"
       img_os="✔"
-      fi  
+      fi
       echo "[ ${blue}macOS:    ${reset} ${yellow}$status3${reset}   ]"
       os_ver="$(sw_vers -productVersion 2>&1)"
       echo "[ ${cyan}$img_os macOS ${reset}${cyan}$os_ver${reset}       ]"
@@ -168,7 +171,7 @@ function network(){
       echo "• ${blue}IP: ${reset}${green}$public_ip${reset}"
       if [ -s $city ]
       then
-      : 
+      :
       else
       echo "• ${blue}City: ${reset}${green}$city${reset}"
       fi
@@ -189,11 +192,11 @@ function network(){
 function backup(){
      count="0"
      echo "[ ${blue}dotfiles:  ${reset}${yellow}$copying${reset} ]"
-     
+
      if [ -f "$dotfile0" ]
      then
 #     echo good
-     cp $dotfile0 ${BDIR} 2>&1 
+     cp $dotfile0 ${BDIR} 2>&1
      ((count++))
      else
      :
@@ -202,7 +205,7 @@ function backup(){
      if [ -f "$dotfile1" ]
      then
 #     echo good
-     cp $dotfile1 ${BDIR} 2>&1  
+     cp $dotfile1 ${BDIR} 2>&1
      ((count++))
      else
      :
@@ -229,7 +232,7 @@ function backup(){
      if [ -f "$dotfile4" ]
      then
 #     echo good
-     cp $dotfile4 ${BDIR} 2>&1  
+     cp $dotfile4 ${BDIR} 2>&1
      ((count++))
      else
      :
@@ -267,14 +270,14 @@ function completed(){
       echo "${blue}╭────╼${reset}${purple} Completed in: ${reset}${cyan}$duration${reset}${cyan}s${reset}"
 }
 
-#Arguments 
+#Arguments
 for ((arg=0;arg<"${#args[@]}";arg++)); do
         [ "${args[$arg]}" == "--version" ] && echo "${version}" && exit
         [ "${args[$arg]}" == "--help" ] && echo "${help}" && exit
         [ "${args[$arg]}" == "--license" ] && echo "${license}" && exit
-        [ "${args[$arg]}" == "--about" ] && echo "${about}" && exit 
+        [ "${args[$arg]}" == "--about" ] && echo "${about}" && exit
         #[ "${args[$arg]}" == "--" ] && echo ${args[$arg]}
-done 
+done
 
 #Activate panel
 while [ $endscript = "false" ]
