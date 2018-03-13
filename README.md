@@ -7,5 +7,6 @@ To use, you will need:
         
         macOS (High Sierra)
         Homebrew
+        Bash
         iTerm2 (enable shell integration)
         imgcat 
