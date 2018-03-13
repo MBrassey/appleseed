@@ -21,12 +21,16 @@ What it does:
     
     } 
 
+<br><br>
+
     function macOS() {
     
     ... Runs 'softwareupdate -l' ...
     ... Reports on status of macOS updates ... 
     
     }
+
+<br><br>
 
     function homebrew() {
     
@@ -35,6 +39,8 @@ What it does:
     
     }
  
+<br><br>
+
     function network() {
     
     ... Determines Public IP ...
