@@ -53,4 +53,4 @@ What it does:
 
 Configuring the `minutes=""` variable controls how long appleseed will wait to relaunch, in this way it operates as a simple cron service for session based process automation.  
 
-I use appleseed to backup my macOS <a href="https://github.com/mattinclude/macOS">Desktop Configuration files</a> to `appleseed/backup/`, and other important files wherever I want them :]. 
+I use appleseed to backup my <a href="https://github.com/mattinclude/macOS">macOS Desktop Configuration</a> files to `appleseed/backup/`, and other important files wherever I want them :]. 
