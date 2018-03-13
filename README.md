@@ -43,4 +43,12 @@ What it does:
     
     }
 
+    function graphix() {
+    
+    ... Chooses random image from appleseed/img/ ...
+    ... Displays image with the terminal using imgcat ... 
+    
+    }
+
+
 Configuring the `minutes=""` variable controls how long appleseed will wait to relaunch, in this way it functions as a simple cron service.  
