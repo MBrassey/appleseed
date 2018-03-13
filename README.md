@@ -51,4 +51,4 @@ What it does:
     }
 
 
-Configuring the `minutes=""` variable controls how long appleseed will wait to relaunch, in this way it operates as a simple cron service for process automation of your choice.  
+Configuring the `minutes=""` variable controls how long appleseed will wait to relaunch, in this way it operates as a simple cron service for process automation.  
