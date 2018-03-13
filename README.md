@@ -21,7 +21,6 @@ What it does:
     
     } 
 
-<br>
 
     function macOS() {
     
@@ -30,7 +29,6 @@ What it does:
     
     }
 
-<br><br>
 
     function homebrew() {
     
@@ -39,7 +37,6 @@ What it does:
     
     }
  
-<br><br>
 
     function network() {
     
