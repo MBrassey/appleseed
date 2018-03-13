@@ -14,7 +14,7 @@ To use, you will need:
 What it does:
 
 
-    function backup() {
+    function <strong>backup</strong>() {
     
     ... Makes sure the specified files exist, copies them to appleseed/backup/ ... 
     ... Reports on activities taken ...
