@@ -6,5 +6,6 @@
 To use, you will need:
         
         macOS (High Sierra)
+        Homebrew
         iTerm2
         Shell Integration (Enabled)
