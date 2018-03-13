@@ -21,7 +21,6 @@ What it does:
     
     } 
 
-
     function macOS() {
     
     ... Runs 'softwareupdate -l' ...
@@ -29,14 +28,12 @@ What it does:
     
     }
 
-
     function homebrew() {
     
     ... Runs 'brew update' ...
     ... Reports on activities taken ... 
     
     }
- 
 
     function network() {
     
@@ -44,4 +41,6 @@ What it does:
     ... Determines Geo-Location ... 
     ... Reports these values to the panel ...
     
-    } 
+    }
+
+Configuring the `minutes=""` variable controls how long appleseed will wait to relaunch, in this way it functions as a simple cron service.  
