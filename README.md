@@ -7,5 +7,5 @@ To use, you will need:
         
         macOS (High Sierra)
         Homebrew
-        iTerm2
-        Shell Integration (Enabled)
+        iTerm2 (enable shell integration)
+        imgcat 
