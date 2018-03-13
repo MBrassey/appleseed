@@ -9,4 +9,36 @@ To use, you will need:
     Homebrew
     Bash
     iTerm2 (enable shell integration)
-    imgcat 
+    imgcat
+
+What it does:
+
+
+    function backup() {
+    
+    ... Makes sure the specified files exist, copies them to appleseed/backup/ ... 
+    ... Reports on activities taken ...
+    
+    } 
+
+    function macOS() {
+    
+    ... Runs 'softwareupdate -l' ...
+    ... Reports on status of macOS updates ... 
+    
+    }
+
+    function homebrew() {
+    
+    ... Runs 'brew update' ...
+    ... Reports on activities taken ... 
+    
+    }
+ 
+    function network() {
+    
+    ... Determines Public IP ...
+    ... Determines Geo-Location ... 
+    ... Reports these values to the panel ...
+    
+    } 
