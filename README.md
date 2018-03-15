@@ -56,5 +56,5 @@ Configuring the `minutes=""` variable controls how long appleseed will wait to r
 I use appleseed to backup my [macOS Desktop Configuration](https://github.com/mattinclude/macOS) files to `appleseed/backup/`, and other important files wherever I want them :].
 
 #### ToDo:
-- [ ] Add function to upload "backup files" to STORJ. 
+- [ ] Add option to upload "backup files" to STORJ. 
 - [ ] Add function to pull down and apply configs from github repo.  
