@@ -57,4 +57,4 @@ I use appleseed to backup my [macOS Desktop Configuration](https://github.com/ma
 
 #### ToDo:
 - [ ] Add option to upload "backup files" to STORJ. 
-- [ ] Add function to pull down and apply configs from github repo.  
+- [ ] Add argument "--sync" to pull down and apply configs from github repo.  
