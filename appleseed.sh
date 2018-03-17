@@ -7,9 +7,7 @@ endscript="false"
 imgcat="/Users/matthew/.iterm2/imgcat"
 minutes="10"
 status1="Working.. "
-status2="Updated!  "
 copying="Copying.. "
-home="$HOME"
 DIR="$HOME/git/appleseed/img"
 BDIR="$HOME/git/appleseed/backup" #your backup directory
 IFS='
@@ -22,25 +20,24 @@ dotfile2="$HOME/Library/Fonts/Hack-Regular.ttf"
 dotfile3="$HOME/.tmux.conf"
 dotfile4="/etc/tmux.conf.local"
 dotfile5="$HOME/osxui/okeanos/demo/trident.coffee"
-dotfile6=""
-dotfile7=""
-dotfile8=""
+#dotfile6=""
+#dotfile7=""
+#dotfile8=""
 many="6"
 
 #Colors
 reset="$(tput sgr0)"
-lineColor="$reset"
-black="$(tput bold; tput setaf 0)"
+#black="$(tput bold; tput setaf 0)"
 blue="$(tput bold; tput setaf 4)"
 cyan="$(tput bold; tput setaf 6)"
 green="$(tput bold; tput setaf 2)"
 purple="$(tput bold; tput setaf 5)"
 red="$(tput bold; tput setaf 1)"
-white="$(tput bold; tput setaf 7)"
+#white="$(tput bold; tput setaf 7)"
 yellow="$(tput bold; tput setaf 3)"
 orange=$(tput bold; tput setaf 166);
-violet=$(tput bold; tput setaf 61);
-host="$(echo $HOSTNAME)"
+#violet=$(tput bold; tput setaf 61);
+host=$HOSTNAME
 header="${cyan}[  appleseed : ${host} ]${reset}"
 backup="${purple}Backup:${reset}"
 packages="${purple}Packages:${reset}"
@@ -87,28 +84,27 @@ ${cyan}${reset} appleseed v${version}
 function panel() {
        start=$SECONDS
        clear
-       echo $header
+       echo "$header"
        echo ""
-       echo $backup
+       echo "$backup"
        backup
        echo ""
-       echo $packages
+       echo "$packages"
        macOS
        homebrew
        echo ""
-       echo $network
+       echo "$network"
        network
        graphix
 
 #Sleep sequence
        completed
-       secs=$(($minutes * 60))
+       secs=$((minutes * 60))
        while [ $secs -gt 0 ]; do
-          echo -ne "${blue}╰────╼${reset}${green} Re-launch in:${reset} ${cyan}$secs\033[0Ks\r${reset}"
+          echo -ne "${blue}╰────╼${reset}${green} Re-launch in:${reset} ${cyan}$secs\\033[0Ks\\r${reset}"
           sleep 1
           : $((secs--))
        done
-       echo "$footer"
 }
 
 function graphix() {
@@ -123,7 +119,7 @@ function graphix() {
 function homebrew() {
       echo "[ ${blue}Homebrew: ${reset} ${yellow}$status1${reset} ]"
       temp0="$(brew update 2>&1)"
-      if [[ $temp0 = *"Already"* ]]; then
+      if [[ "$temp0" = *"Already"* ]]; then
       status4="${green}Updated!${reset}"
       img_brew="✔"
       echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
@@ -131,7 +127,7 @@ function homebrew() {
       status4="${orange}Missing!${reset}"
       echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
       img_brew="${orange}✗${reset}${cyan}"
-          if [[ $temp0 = *"Updated"* ]]; then
+          if [[ "$temp0" = *"Updated"* ]]; then
           echo "[ ${green}✔ ${temp0:0:14}${reset}      ]"
           img_brew="✔"
           fi
@@ -145,8 +141,8 @@ function homebrew() {
 function macOS() {
       echo "[ ${blue}macOS:    ${reset} ${yellow}$status1${reset} ]"
       temp="$(softwareupdate -l 2>&1)"
-      temp2="$(echo $temp|grep "No" 2>&1)"
-      if [ -s $temp2 ]
+      temp2="$(echo "$temp"|grep "No" 2>&1)"
+      if [ -s "$temp2" ]
       then
       status3="${red}Missing!${reset}" #need root to actually update macOS
       img_os="${orange}✗${reset}${cyan}"
@@ -162,24 +158,24 @@ function macOS() {
 
 function network(){
       public_ip=$(wget -q -O - checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//')
-      city_raw=$(curl ipinfo.io/$public_ip 2>&1|grep city|sed 's/\(.*\)../\1/')
+      city_raw=$(curl ipinfo.io/"$public_ip" 2>&1|grep city|sed 's/\(.*\)../\1/')
       city=${city_raw:11}
-      region_raw=$(curl ipinfo.io/$public_ip 2>&1|grep region|sed 's/\(.*\)../\1/')
+      region_raw=$(curl ipinfo.io/"$public_ip" 2>&1|grep region|sed 's/\(.*\)../\1/')
       region=${region_raw:13}
-      country_raw=$(curl ipinfo.io/$public_ip 2>&1|grep country|sed 's/\(.*\)../\1/')
+      country_raw=$(curl ipinfo.io/"$public_ip" 2>&1|grep country|sed 's/\(.*\)../\1/')
       country=${country_raw:14}
       echo "• ${blue}IP: ${reset}${green}$public_ip${reset}"
-      if [ -s $city ]
+      if [ -s "$city" ]
       then
       :
       else
       echo "• ${blue}City: ${reset}${green}$city${reset}"
       fi
-      if [ -s $region ]
+      if [ -s "$region" ]
       then
       :
       else
-          if [ $region == $city ]
+          if [ "$region" == "$city" ]
           then
           :
           else
@@ -195,8 +191,7 @@ function backup(){
 
      if [ -f "$dotfile0" ]
      then
-#     echo good
-     cp $dotfile0 ${BDIR} 2>&1
+     cp "$dotfile0" "${BDIR}" 2>&1
      ((count++))
      else
      :
@@ -204,8 +199,7 @@ function backup(){
 
      if [ -f "$dotfile1" ]
      then
-#     echo good
-     cp $dotfile1 ${BDIR} 2>&1
+     cp "$dotfile1" "${BDIR}" 2>&1
      ((count++))
      else
      :
@@ -213,8 +207,7 @@ function backup(){
 
      if [ -f "$dotfile2" ]
      then
-#     echo good
-     cp $dotfile2 ${BDIR} 2>&1
+     cp "$dotfile2" "${BDIR}" 2>&1
      ((count++))
      else
      :
@@ -222,8 +215,7 @@ function backup(){
 
      if [ -f "$dotfile3" ]
      then
-#     echo good
-     cp $dotfile3 ${BDIR} 2>&1
+     cp "$dotfile3" "${BDIR}" 2>&1
      ((count++))
      else
      :
@@ -231,8 +223,7 @@ function backup(){
 
      if [ -f "$dotfile4" ]
      then
-#     echo good
-     cp $dotfile4 ${BDIR} 2>&1
+     cp "$dotfile4" "${BDIR}" 2>&1
      ((count++))
      else
      :
@@ -240,19 +231,19 @@ function backup(){
 
      if [ -f "$dotfile5" ]
      then
-     cp $dotfile5 ${BDIR} 2>&1
+     cp "$dotfile5" "${BDIR}" 2>&1
      ((count++))
      else
      :
      fi
 
-     if [ -f "$dotfile6" ]
-     then
-     echo good
-     ((count++))
-     else
-     :
-     fi
+#     if [ -f "$dotfile6" ]
+#     then
+#     :
+#     ((count++))
+#     else
+#     :
+#     fi
 
      if [ $count -eq $many ]
      then
@@ -260,13 +251,13 @@ function backup(){
      else
      img_backup="${orange}✗${reset}"
      fi
-     echo "[ ${cyan}$img_backup Copied:  ${reset}${green}"$count"${reset}/${cyan}"$many"${reset}${cyan} files!${reset} ]"
+     echo "[ ${cyan}$img_backup Copied:  ${reset}${green}$count${reset}/${cyan}$many${reset}${cyan} files!${reset} ]"
 
 }
 
 function completed(){
       echo ""
-      duration=$(( SECONDS - $start ))
+      duration=$(( SECONDS - start ))
       echo "${blue}╭────╼${reset}${purple} Completed in: ${reset}${cyan}$duration${reset}${cyan}s${reset}"
 }
 
