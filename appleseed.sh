@@ -240,7 +240,7 @@ function backup(){
 
      if [ -f "$dotfile5" ]
      then
-     echo good
+     cp $dotfile5 ${BDIR} 2>&1
      ((count++))
      else
      :
