@@ -21,11 +21,11 @@ dotfile1="$HOME/.oh-my-zsh/themes/trident.zsh-theme"
 dotfile2="$HOME/Library/Fonts/Hack-Regular.ttf"
 dotfile3="$HOME/.tmux.conf"
 dotfile4="/etc/tmux.conf.local"
-dotfile5=""
+dotfile5="$HOME/osxui/okeanos/demo/trident.coffee"
 dotfile6=""
 dotfile7=""
 dotfile8=""
-many="5"
+many="6"
 
 #Colors
 reset="$(tput sgr0)"
