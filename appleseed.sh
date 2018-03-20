@@ -140,8 +140,8 @@ function homebrew() {
 
 function macOS() {
       echo "[ ${blue}macOS:    ${reset} ${yellow}$status1${reset} ]"
- #     temp="$(softwareupdate -l 2>&1)"
-      temp="No"
+      temp="$(softwareupdate -l 2>&1)"
+#      temp="No"
       temp2="$(echo "$temp"|grep "No" 2>&1)"
       if [ -s "$temp2" ]
       then
