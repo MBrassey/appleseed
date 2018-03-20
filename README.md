@@ -55,6 +55,10 @@ Configuring the `minutes=""` variable controls how long appleseed will wait to r
 
 I use appleseed to backup my [macOS Desktop Configuration](https://github.com/mattinclude/macOS) files to `appleseed/backup/`, and other important files wherever I want them :].
 
+Troubleshooting:
+
+When using the updated versions of zsh (5.3 +) or Shell Integration in iTerm 2 (Build 2.9.20160313) or later, sometimes imgcat will stop working. Review [this](http://bit.ly/2psIiZL) to resolve the issue.  
+
 #### ToDo:
 - [ ] Add option to upload `backup files` to [STORJ](https://storj.io). 
 - [ ] Add argument "--sync" to pull down and apply configs from github repo.  
