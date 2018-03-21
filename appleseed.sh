@@ -95,6 +95,8 @@ function panel() {
        echo ""
        echo "$network"
        network
+       echo ""
+       system
        graphix
 
 #Sleep sequence
@@ -254,6 +256,16 @@ function backup(){
      fi
      echo "[ ${cyan}$img_backup Copied:  ${reset}${green}$count${reset}/${cyan}$many${reset}${cyan} files!${reset} ]"
 
+}
+
+function system(){
+     capacity=$(df -h /)
+#     capacity2=$capacity[2]
+#     capacity3=$(echo $capacity2 | awk '/Gi/ {print $5}')
+     capacity2=$(echo ${capacity:110:-30}) 
+     capacity3=$((100 - $capacity2))
+     echo "[Disk Free: ${green}$capacity3${reset}${green}%${reset}]"
+    
 }
 
 function completed(){

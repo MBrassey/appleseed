@@ -64,6 +64,7 @@ When using the updated versions of zsh (5.3 +) or Shell Integration in iTerm 2 (
     "blue" • _render__anime_girl_by_miregg-d9m6fta
     "green" • valkyrie_crusade___high_elf_render_by_ennaliese-d8xwb5p
     "purple" • Anime_girl_purple_hair_render_by_schorch2812-d821xxe
+    "cool" • [Original] Anime girl render by LCkiWi
     "wuf" • wolf_girl_swimsuit_render_by_sirkonata
     "sk8" • Anime_girl_render_60_by_dickywardhana-d7l8o5v
     "asuna" • asuna_render_by_codzocker00-d5kw2ld
