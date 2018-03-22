@@ -8,6 +8,7 @@ imgcat="/Users/matthew/.iterm2/imgcat"
 minutes="10"
 status1="Working.. "
 copying="Copying.. "
+host=$HOSTNAME
 DIR="$HOME/git/appleseed/img"
 BDIR="$HOME/git/appleseed/backup" #your backup directory
 IFS='
@@ -37,7 +38,6 @@ red="$(tput bold; tput setaf 1)"
 yellow="$(tput bold; tput setaf 3)"
 orange=$(tput bold; tput setaf 166);
 #violet=$(tput bold; tput setaf 61);
-host=$HOSTNAME
 header="${cyan}[ ${reset}${green}${reset}${cyan} appleseed @ ${blue}${host}${reset} ${cyan}]${reset}"
 backup="${purple}Backup:${reset}"
 packages="${purple}Packages:${reset}"
@@ -188,7 +188,13 @@ function network(){
           echo "• ${blue}Region: ${reset}${green}$region${reset}"
           fi
       fi
-      echo "• ${blue}Country: ${reset}${green}$country${reset}"
+      if [ "$country" != "US" ]
+      then
+      vpn="${cyan}✔ ${reset}${green}VPN${reset}"
+      else
+      vpn="${orange}✗ ${reset}${yellow}VPN${reset}"
+      fi
+      echo "• ${blue}Country: ${reset}${green}$country${reset}       $vpn"
 }
 
 function backup(){
