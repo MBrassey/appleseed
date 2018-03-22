@@ -79,7 +79,8 @@ When using the updated versions of zsh (5.3 +) or Shell Integration in iTerm 2 (
     "chain" • r_n03_by_maoyuu_maou-dbp0km0
     "united" • untitld_1_by_kougon01-d6xnags
     "gz1-gz9" • original_render_by_lckiw
-    
+
+Layer Effects: +0.3 px outer glow, +3D Effect   
 
 #### ToDo:
 - [ ] Add option to upload `backup files` to [STORJ](https://storj.io). 
