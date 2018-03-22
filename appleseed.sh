@@ -264,7 +264,6 @@ function backup(){
      img_backup="${orange}✗${reset}"
      fi
      echo "${cyan}[${reset} ${cyan}$img_backup Copied:  ${reset}${green}$count${reset}/${cyan}$many${reset}${cyan} files!${reset} ${cyan}]${reset}"
-
 }
 
 function system(){
@@ -283,6 +282,7 @@ function system(){
      capacity3=$((100 - $capacity2))
      echo "${cyan}[ ${reset}${blue}SSD:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan} ]${reset} ${cyan}[ ${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
 }
+
 function completed(){
       duration=$(( SECONDS - start ))
       echo "${blue}╭────╼${reset}${purple} Completed in: ${reset}${cyan}$duration${reset}${cyan}s${reset}"
