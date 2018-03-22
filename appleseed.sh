@@ -259,15 +259,20 @@ function backup(){
 }
 
 function system(){
+     cpu0=$(top -l 2 -n 0 -F | egrep -o ' \d*\.\d+% idle' | tail -1 | awk -F% -v prefix="$prefix" '{ printf "%s%.1f%%\n", prefix, 100 - $1 }') # – mklement0
+     cpu1=${cpu0::-3}
+     if [ "$cpu1" -lt "10" ]
+     then 
+     cpu=" ${green}$cpu0${reset}"
+     else
+     cpu="${orange}$cpu0${reset}" 
+     fi 
      capacity=$(df -h /)
-#     capacity2=$capacity[2]
-#     capacity3=$(echo $capacity2 | awk '/Gi/ {print $5}')
+     capacity2=$capacity[2]
      capacity2=$(echo ${capacity:110:-30}) 
      capacity3=$((100 - $capacity2))
-     echo "[Disk Free: ${green}$capacity3${reset}${green}%${reset}]"
-    
+     echo "${cyan}[${reset}Disk1: ${green}$capacity3${reset}${green}%${reset}${cyan}]${reset} ${cyan}[${reset}CPU: $cpu${cyan}]${reset}"
 }
-
 function completed(){
       echo ""
       duration=$(( SECONDS - start ))
