@@ -38,7 +38,7 @@ yellow="$(tput bold; tput setaf 3)"
 orange=$(tput bold; tput setaf 166);
 #violet=$(tput bold; tput setaf 61);
 host=$HOSTNAME
-header="${cyan}[  appleseed : ${host} ]${reset}"
+header="${cyan}[ ${reset}${green}${reset}${cyan} appleseed @ ${blue}${host}${reset} ]${reset}"
 backup="${purple}Backup:${reset}"
 packages="${purple}Packages:${reset}"
 network="${purple}Network:${reset}"
@@ -278,7 +278,6 @@ function system(){
      echo "${cyan}[ ${reset}${blue}SSD:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan} ]${reset} ${cyan}[ ${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
 }
 function completed(){
-      echo ""
       duration=$(( SECONDS - start ))
       echo "${blue}╭────╼${reset}${purple} Completed in: ${reset}${cyan}$duration${reset}${cyan}s${reset}"
 }
