@@ -271,7 +271,7 @@ function system(){
      capacity2=$capacity[2]
      capacity2=$(echo ${capacity:110:-30}) 
      capacity3=$((100 - $capacity2))
-     echo "${cyan}[${reset}Disk1: ${green}$capacity3${reset}${green}%${reset}${cyan}]${reset} ${cyan}[${reset}CPU: $cpu${cyan}]${reset}"
+     echo "${cyan}[${reset}${blue}Disk1:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan}]${reset} ${cyan}[${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
 }
 function completed(){
       echo ""
