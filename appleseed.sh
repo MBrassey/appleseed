@@ -42,6 +42,7 @@ header="${cyan}[  appleseed : ${host} ]${reset}"
 backup="${purple}Backup:${reset}"
 packages="${purple}Packages:${reset}"
 network="${purple}Network:${reset}"
+resources="${purple}Resources:${reset}"
 
 #Arguments
 version=${cyan}1.0.0${reset}
@@ -96,7 +97,9 @@ function panel() {
        echo "$network"
        network
        echo ""
+       echo "$resources"
        system
+       echo ""
        graphix
 
 #Sleep sequence
@@ -119,29 +122,29 @@ function graphix() {
 }
 
 function homebrew() {
-      echo "[ ${blue}Homebrew: ${reset} ${yellow}$status1${reset} ]"
+      echo "${cyan}[${reset} ${blue}Homebrew: ${reset} ${yellow}$status1${reset} ${cyan}]${reset}"
       temp0="$(brew update 2>&1)"
       if [[ "$temp0" = *"Already"* ]]; then
       status4="${green}Updated!${reset}"
       img_brew="✔"
-      echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
+      echo "${cyan}[${reset} ${blue}Homebrew: ${reset} ${green}$status4${reset}   ${cyan}]${reset}"
       else
       status4="${orange}Missing!${reset}"
-      echo "[ ${blue}Homebrew: ${reset} ${green}$status4${reset}   ]"
+      echo "${cyan}[${reset} ${blue}Homebrew: ${reset} ${green}$status4${reset}   ${cyan}]${reset}"
       img_brew="${orange}✗${reset}${cyan}"
           if [[ "$temp0" = *"Updated"* ]]; then
-          echo "[ ${green}✔ ${temp0:0:14}${reset}      ]"
+          echo "${cyan}[${reset} ${green}✔ ${temp0:0:14}${reset}      ${cyan}]${reset}"
           img_brew="✔"
           fi
       fi
       brew_ver="$(brew --version 2>&1)"
       brew_ver_num=(${brew_ver[@]})
-      echo "[${cyan} $img_brew $brew_ver_num${reset}     ]"
+      echo "${cyan}[${reset}${cyan} $img_brew $brew_ver_num${reset}     ${cyan}]${reset}"
       temp0=""
 }
 
 function macOS() {
-      echo "[ ${blue}macOS:    ${reset} ${yellow}$status1${reset} ]"
+      echo "${cyan}[${reset} ${blue}macOS:    ${reset} ${yellow}$status1${reset} ${cyan}]${reset}"
       temp="$(softwareupdate -l 2>&1)"
 #      temp="No"
       temp2="$(echo "$temp"|grep "No" 2>&1)"
@@ -153,9 +156,9 @@ function macOS() {
       status3="${green}Updated!${reset}"
       img_os="✔"
       fi
-      echo "[ ${blue}macOS:    ${reset} ${yellow}$status3${reset}   ]"
+      echo "${cyan}[${reset} ${blue}macOS:    ${reset} ${yellow}$status3${reset}   ${cyan}]${reset}"
       os_ver="$(sw_vers -productVersion 2>&1)"
-      echo "[ ${cyan}$img_os macOS ${reset}${cyan}$os_ver${reset}       ]"
+      echo "${cyan}[${reset} ${cyan}$img_os macOS ${reset}${cyan}$os_ver${reset}       ${cyan}]${reset}"
       temp2=""
 }
 
@@ -190,7 +193,7 @@ function network(){
 
 function backup(){
      count="0"
-     echo "[ ${blue}dotfiles:  ${reset}${yellow}$copying${reset} ]"
+     echo "${cyan}[${reset} ${blue}dotfiles:  ${reset}${yellow}$copying${reset} ${cyan}]${reset}"
 
      if [ -f "$dotfile0" ]
      then
@@ -254,24 +257,25 @@ function backup(){
      else
      img_backup="${orange}✗${reset}"
      fi
-     echo "[ ${cyan}$img_backup Copied:  ${reset}${green}$count${reset}/${cyan}$many${reset}${cyan} files!${reset} ]"
+     echo "${cyan}[${reset} ${cyan}$img_backup Copied:  ${reset}${green}$count${reset}/${cyan}$many${reset}${cyan} files!${reset} ${cyan}]${reset}"
 
 }
 
 function system(){
-     cpu0=$(top -l 2 -n 0 -F | egrep -o ' \d*\.\d+% idle' | tail -1 | awk -F% -v prefix="$prefix" '{ printf "%s%.1f%%\n", prefix, 100 - $1 }') # – mklement0
-     cpu1=${cpu0::-3}
-     if [ "$cpu1" -lt "10" ]
+     cpu2=$(top -l 2 -n 0 -F | egrep -o ' \d*\.\d+% idle' | tail -1 | awk -F% -v prefix="$prefix" '{ printf "%s%.1f%%\n", prefix, 100 - $1 }') # – mklement0
+     cpu1=${cpu2::-3}
+     cpu0=$((100 - $cpu1))
+     if [ "$cpu0" -lt "10" ]
      then 
-     cpu=" ${green}$cpu0${reset}"
+     cpu=" ${orange}"$cpu0"%${reset} "
      else
-     cpu="${orange}$cpu0${reset}" 
+     cpu="${green}"$cpu0"%${reset} " 
      fi 
      capacity=$(df -h /)
      capacity2=$capacity[2]
      capacity2=$(echo ${capacity:110:-30}) 
      capacity3=$((100 - $capacity2))
-     echo "${cyan}[${reset}${blue}Disk1:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan}]${reset} ${cyan}[${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
+     echo "${cyan}[ ${reset}${blue}SSD:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan} ]${reset} ${cyan}[ ${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
 }
 function completed(){
       echo ""
