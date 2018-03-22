@@ -87,3 +87,5 @@ Layer Effects: + 0.3 px outer glow, + 3D Effect.
 #### ToDo:
 - [ ] Add option to upload `backup files` to [STORJ](https://storj.io). 
 - [ ] Add argument "--sync" to pull down and apply configs from github repo.  
+
+[ <strong>[reddit](https://www.reddit.com/r/unixporn/comments/86d0t4/macos_appleseed_clw/)</strong> ]
