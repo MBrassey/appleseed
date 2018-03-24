@@ -11,6 +11,7 @@ copying="Copying.. "
 host=$HOSTNAME
 DIR="$HOME/git/appleseed/img"
 BDIR="$HOME/git/appleseed/backup" #your backup directory
+prefix=""
 IFS='
 '
 
@@ -115,8 +116,10 @@ function panel() {
 function graphix() {
      if [[ -d "${DIR}" ]]
      then
+       # shellcheck disable=SC2207
+       # taken care (through setting IFS) 
        file_matrix=($(ls "${DIR}"))
-       num_files=${#file_matrix[*]}
+       num_files=(${#file_matrix[*]})
        $imgcat "${DIR}/${file_matrix[$((RANDOM%num_files))]}"
      fi
 }
@@ -138,8 +141,10 @@ function homebrew() {
           fi
       fi
       brew_ver="$(brew --version 2>&1)"
+      # shellcheck disable=SC2206
+      # taken care (through setting IFS)
       brew_ver_num=(${brew_ver[@]})
-      echo "${cyan}[${reset}${cyan} $img_brew $brew_ver_num${reset}     ${cyan}]${reset}"
+      echo "${cyan}[${reset}${cyan} $img_brew ${brew_ver_num[0]}${reset}     ${cyan}]${reset}"
       temp0=""
 }
 
@@ -267,19 +272,19 @@ function backup(){
 }
 
 function system(){
-     cpu2=$(top -l 2 -n 0 -F | egrep -o ' \d*\.\d+% idle' | tail -1 | awk -F% -v prefix="$prefix" '{ printf "%s%.1f%%\n", prefix, 100 - $1 }') # – mklement0
+     cpu2=$(top -l 2 -n 0 -F | grep -Eo ' \d*\.\d+% idle' | tail -1 | awk -F% -v prefix="$prefix" '{ printf "%s%.1f%%\n", prefix, 100 - $1 }') # – mklement0
      cpu1=${cpu2::-3}
-     cpu0=$((100 - $cpu1))
+     cpu0=$((100 - cpu1))
      if [ "$cpu0" -lt "10" ]
      then 
-     cpu=" ${orange}"$cpu0"%${reset} "
+     cpu=" ${orange}$cpu0${reset}${green}%${reset} "
      else
-     cpu="${green}"$cpu0"%${reset} " 
+     cpu="${green}$cpu0${reset}${green}%${reset} " 
      fi 
      capacity=$(df -h /)
-     capacity2=$capacity[2]
-     capacity2=$(echo ${capacity:110:-30}) 
-     capacity3=$((100 - $capacity2))
+     capacity2="$capacity[2]"
+     capacity2=${capacity:110:-30} 
+     capacity3=$((100 - capacity2))
      echo "${cyan}[ ${reset}${blue}SSD:${reset} ${green}$capacity3${reset}${green}%${reset}${cyan} ]${reset} ${cyan}[ ${reset}${blue}CPU:${reset} $cpu${cyan}]${reset}"
 }
 
