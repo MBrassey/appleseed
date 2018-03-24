@@ -69,7 +69,7 @@ I use appleseed to backup my [macOS Desktop Configuration](https://github.com/ma
 
 When using the updated versions of zsh (5.3 +) or Shell Integration in iTerm 2 (Build 2.9.20160313) or later, sometimes imgcat will stop working. Review [this](http://bit.ly/2psIiZL) to resolve the issue.  
 
-#### Artwork
+#### Artwork:
 
     "blue" • _render__anime_girl_by_miregg-d9m6fta
     "green" • valkyrie_crusade___high_elf_render_by_ennaliese-d8xwb5p
