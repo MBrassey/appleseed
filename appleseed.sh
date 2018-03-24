@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # appleseed is a command line widget (CLW), designed for macOS and iTerm2.
-
+#                    __                            __ 
+# .---.-.-----.-----|  .-----.-----.-----.-----.--|  |
+# |  _  |  _  |  _  |  |  -__|__ --|  -__|  -__|  _  |
+# |___._|   __|   __|__|_____|_____|_____|_____|_____|
+#       |__|  |__| v1.0.0                                   
+                       
 #Variables
 args=("$@")
 endscript="false"
