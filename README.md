@@ -1,6 +1,10 @@
 # appleseed
  appleseed is a command line widget (CLW), designed for `macOS` and `iTerm2`
 
+─── [Code Review](https://codereview.stackexchange.com/questions/190375/appleseed-is-a-command-line-widget-clw-macos-iterm2)
+
+─── [reddit](https://www.reddit.com/r/unixporn/comments/86d0t4/macos_appleseed_clw/)
+
 ![appleseed](https://github.com/mattinclude/macOS/blob/master/img/appleseed.png)
 
 #### To use, you will need:
@@ -83,8 +87,6 @@ When using the updated versions of zsh (5.3 +) or Shell Integration in iTerm 2 (
 Layer Effects: + 0.3 px outer glow, + 3D Effect.   
 
 ![appleseed](https://github.com/mattinclude/macOS/blob/master/img/appleseed_slides.png)
-
-[ <strong>[reddit](https://www.reddit.com/r/unixporn/comments/86d0t4/macos_appleseed_clw/)</strong> ]
 
 #### ToDo:
 - [ ] Add option to upload `backup files` to [STORJ](https://storj.io). 
