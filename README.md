@@ -6,6 +6,8 @@ appleseed command line widget (CLW), designed for `macOS` and `iTerm2`
 ─── [Code Review](https://codereview.stackexchange.com/questions/190375/appleseed-is-a-command-line-widget-clw-macos-iterm2)
 
 ─── [reddit](https://redd.it/86d0t4)
+
+![appleseed](https://github.com/mattinclude/macOS/blob/master/img/appleseed.gif)
 #### To use, you will need:
         
     macOS (High Sierra)
