@@ -149,7 +149,7 @@ function homebrew() {
       # shellcheck disable=SC2206
       # taken care (through setting IFS)
       brew_ver_num=(${brew_ver[@]})
-      echo "${cyan}[${reset}${cyan} $img_brew ${brew_ver_num[0]}${reset}     ${cyan}]${reset}"
+      echo "${cyan}[${reset}${cyan} $img_brew ${brew_ver_num[0]}${reset}     ${cyan} ]${reset}"
       temp0=""
 }
 
