@@ -1,6 +1,8 @@
 #### appleseed
 appleseed command line widget (CLW), designed for `macOS` and `iTerm2`.
 
+![licensebadge](https://img.shields.io/badge/license-CC0_1.0_Universal-blue)
+
 [<img src="https://github.com/MBrassey/macOS/blob/master/img/appleseed.png">](https://brassey.io/)
 
 ─── [Code Review](https://codereview.stackexchange.com/questions/190375/appleseed-is-a-command-line-widget-clw-macos-iterm2)
