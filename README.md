@@ -1,5 +1,5 @@
 #### appleseed
-appleseed command line widget (CLW), designed for `macOS` and `iTerm2`.
+'appleseed' command line widget (CLW), designed for `macOS` and `iTerm2`.
 
 ![licensebadge](https://img.shields.io/badge/license-CC0_1.0_Universal-blue)
 
