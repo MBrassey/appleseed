@@ -1,5 +1,5 @@
-# appleseed
-appleseed command line widget (CLW), designed for `macOS` and `iTerm2`
+#### appleseed
+appleseed command line widget (CLW), designed for `macOS` and `iTerm2`.
 
 [<img src="https://github.com/MBrassey/macOS/blob/master/img/appleseed.png">](https://brassey.io/)
 
@@ -7,7 +7,18 @@ appleseed command line widget (CLW), designed for `macOS` and `iTerm2`
 
 ─── [reddit](https://redd.it/86d0t4)
 
-#### To use, you will need:
+#### Table of Contents
+
+* [Requirements](#Requirements)
+* [Functionality](#Functionality)
+* [Usage](#Usage)
+* [Troubleshooting](#Troubleshooting)
+* [Artwork](#Artwork)
+* [ToDo](#ToDo)
+* [Questions](#Questions)
+* [License](#License)
+
+#### Requirements:
         
     macOS (High Sierra)
     Homebrew
@@ -15,7 +26,7 @@ appleseed command line widget (CLW), designed for `macOS` and `iTerm2`
     iTerm2 (enable shell integration)
     imgcat
 
-#### What it does:
+#### Functionality:
 
 
     function backup() {
@@ -89,4 +100,12 @@ Layer Effects: + 0.3 px outer glow, + 3D Effect.
 [<img src="https://github.com/MBrassey/macOS/blob/master/img/appleseed_slides.png">](https://brassey.io/)
 
 #### ToDo:
-- [ ] Add argument "--sync" to pull down and apply configs from github repo.  
+- [ ] Add argument "--sync" to pull down and apply configs from github repo.
+
+#### Questions
+Contact me at [matt@brassey.io](mailto:matt@brassey.io) with any questions or comments.
+
+#### License
+READMEGenesis is published under the __CC0_1.0_Universal__ license.
+
+> The Creative Commons CC0 Public Domain Dedication waives copyright interest in a work you've created and dedicates it to the world-wide public domain. Use CC0 to opt out of copyright entirely and ensure your work has the widest reach. As with the Unlicense and typical software licenses, CC0 disclaims warranties. CC0 is very similar to the Unlicense.
