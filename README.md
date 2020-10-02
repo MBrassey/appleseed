@@ -13,7 +13,6 @@
 
 * [Requirements](#Requirements)
 * [Functionality](#Functionality)
-* [Usage](#Usage)
 * [Troubleshooting](#Troubleshooting)
 * [Artwork](#Artwork)
 * [ToDo](#ToDo)
