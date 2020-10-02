@@ -5,8 +5,7 @@
 
 [<img src="https://github.com/MBrassey/macOS/blob/master/img/appleseed.png">](https://brassey.io/)
 
-─── [Code Review](https://codereview.stackexchange.com/questions/190375/appleseed-is-a-command-line-widget-clw-macos-iterm2)
-
+─── [Code Review](https://codereview.stackexchange.com/questions/190375/appleseed-is-a-command-line-widget-clw-macos-iterm2)<br>
 ─── [reddit](https://redd.it/86d0t4)
 
 #### Table of Contents
